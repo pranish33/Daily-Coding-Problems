@@ -1,30 +1,28 @@
 # creating tictactoe game using python programming language
 
-# display board
-
+# board
 board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
 
+# global variable used later in the following code
 game_still_going = True
-
 Winner = None
-
 current_player = "X"
+
+# display board function which will return board of tictactoe
 
 
 def display_board():
-
     print(board[0] + " | ", board[1] + " | ", board[2] + " | ")
     print(board[3] + " | ", board[4] + " | ", board[5] + " | ")
     print(board[6] + " | ", board[7] + " | ", board[8] + " | ")
 
 
-# play game
-
+# play game is the main function which will handle whole game
 def play_game():
     display_board()
-
+    # looping through function to check if game is still valid for playing or game is out of playing
     while game_still_going:
 
         handle_turn(current_player)
@@ -39,6 +37,8 @@ def play_game():
         print("Game Tie")
 
     display_board()
+
+# this function handle player's input position
 
 
 def handle_turn(player):
@@ -58,11 +58,16 @@ def handle_turn(player):
     board[position] = player
     display_board()
 
+# check if game is won or tie
+
 
 def check_if_game_over():
     check_for_winner()
     check_if_game_tie()
+
 # check if player win
+
+# check player won or not
 
 
 def check_for_winner():
@@ -86,6 +91,8 @@ def check_for_winner():
         Winner = None
         # check row
 
+# check function if game won in row
+
 
 def check_rows():
     global game_still_going
@@ -104,6 +111,8 @@ def check_rows():
 
     return
 # check column
+
+# check function if game won in column
 
 
 def check_column():
@@ -124,6 +133,7 @@ def check_column():
     return
 
 # check diagonal
+# check function if game won in diagonal
 
 
 def check_diagonal():
@@ -148,7 +158,7 @@ def check_if_game_tie():
         game_still_going = False
     return
 
-# check if current player
+# check if current player is "X" or "O"
 
 
 def flip_player():
